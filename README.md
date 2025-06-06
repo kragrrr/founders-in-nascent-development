@@ -1,73 +1,102 @@
-# Welcome to your Lovable project
+# FIND: Founders in Nascent Development
 
-## Project info
+A comprehensive talent discovery platform designed to identify and catalog high-potential current and future founders across Australia's startup ecosystem.
 
-**URL**: https://lovable.dev/projects/f960e117-62ba-4dd0-887a-384ccdb7ed9b
+## Features
 
-## How can I edit this code?
+- Advanced founder search with multiple filtering options
+- AI-powered profile enrichment using Perplexity's Sonar API
+- Comprehensive founder profiles with diversity metrics
+- Tag-based categorization and filtering
+- Real-time data updates and quality monitoring
+- Export capabilities for search results
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- Frontend: React + TypeScript + Vite
+- UI Components: Shadcn UI
+- Database: PostgreSQL (via Supabase)
+- AI Integration: Perplexity Sonar API
+- Authentication: Supabase Auth
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f960e117-62ba-4dd0-887a-384ccdb7ed9b) and start prompting.
+## Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js 18+
+- Supabase account
+- Perplexity API key
 
-**Use your preferred IDE**
+## Environment Variables
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Create a `.env` file in the root directory with the following variables:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_PERPLEXITY_API_KEY=your_perplexity_api_key
+```
 
-Follow these steps:
+## Setup
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/find.git
+cd find
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. Install dependencies:
+```bash
+npm install
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. Set up the database:
+```bash
+# Apply migrations
+supabase db reset
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Seed the database with initial data
+supabase db seed
+```
+
+4. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Database Schema
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The application uses the following main tables:
 
-**Use GitHub Codespaces**
+- `founders`: Core founder information
+- `startups`: Startup details
+- `founder_startups`: Founder-startup relationships
+- `diversity_metrics`: Diversity and inclusion data
+- `tags`: Categorization tags
+- `founder_tags`: Founder-tag relationships
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## API Integration
 
-## What technologies are used for this project?
+### Perplexity Sonar API
 
-This project is built with:
+The platform uses Perplexity's Sonar API for AI-powered profile enrichment. The integration is handled through the `DataCollectionService` class.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Supabase
 
-## How can I deploy this project?
+All database operations are performed through Supabase's client library, with proper type safety and real-time capabilities.
 
-Simply open [Lovable](https://lovable.dev/projects/f960e117-62ba-4dd0-887a-384ccdb7ed9b) and click on Share -> Publish.
+## Contributing
 
-## Can I connect a custom domain to my Lovable project?
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-Yes, you can!
+## License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Acknowledgments
+
+- Perplexity AI for their Sonar API
+- Supabase for the backend infrastructure
+- Shadcn UI for the component library

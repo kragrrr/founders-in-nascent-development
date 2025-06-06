@@ -1,0 +1,65 @@
+Some of the best founders are hidden in plain sight. They’re not posting on LinkedIn — they’re heads down building. They’re scale-up veterans whose options are vesting. Migrants building quiet empires. PhD researchers with IP ready to spin out.
+
+We want you to help us find and map them.
+
+🧠 The Challenge
+
+Build a searchable database of under-the-radar founder talent. Your product should help surface high-potential current and future founders across Australia.
+
+Must include fields for:
+
+Name
+
+LinkedIn
+
+City
+
+Startup name (if applicable)
+
+Tags (e.g. “scale-up alum,” “side project builder,” “PhD researcher,” “migrant founder”)
+
+Diversity measures:
+
+Required: Gender, Ethnicity
+
+Optional: LGBTQI+, Neurodivergent, Age, Migrant status
+
+🔎 Suggested Data Sources
+
+You're free to be creative, but here are a few to start:
+
+LinkedIn (roles, career trajectories, side project links)
+
+Community groups (Slack/Discords, meetup lists, university clubs)
+
+Crunchbase (stealth startups, early stage company staff)
+
+University and research websites
+
+Founder Twitter/X, Product Hunt, GitHub
+
+You can scrape, research, or crowdsource — as long as the end product is insightful and usable.
+
+🧑‍⚖️ Judging
+
+Projects will be judged by the Techstars team based on:
+
+Data insight and quality
+
+Filterable, usable UX
+
+Creativity in uncovering non-obvious talent
+
+🧠 Prompt Inspiration
+
+Think:
+
+4-year scale-up engineer ready to jump
+
+PhD close to finishing, researching AI, bio, or deeptech
+
+SMB operator now launching SaaS tools
+
+Hackathon winners not yet “in the ecosystem”
+
+Migrant entrepreneurs running businesses under the radar

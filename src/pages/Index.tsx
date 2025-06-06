@@ -1,56 +1,17 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import MetricCard from '@/components/MetricCard';
-import FounderCard from '@/components/FounderCard';
-import SearchFilters from '@/components/SearchFilters';
+import { FounderSearch } from '@/components/FounderSearch';
+import { FounderProfile } from '@/components/FounderProfile';
 import DataQualityIndicator from '@/components/DataQualityIndicator';
 import TrendingInsights from '@/components/TrendingInsights';
 import { Button } from '@/components/ui/button';
 import { Download, Zap, Users, TrendingUp, Target } from 'lucide-react';
+import { Founder } from '@/lib/types/database';
 
 const Index = () => {
-  const sampleFounders = [
-    {
-      name: "Sarah Chen",
-      company: "EcoLogistics",
-      location: "Melbourne, VIC",
-      industry: "CleanTech",
-      potentialScore: 92,
-      description: "Building sustainable supply chain solutions using AI and IoT. Former McKinsey consultant with deep expertise in logistics optimization.",
-      tags: ["AI", "Sustainability", "Logistics", "B2B"],
-      fundingStage: "Pre-Seed",
-      diversityMetrics: ["Female Founded", "Asian-Australian"],
-      avatar: "/placeholder.svg",
-      confidence: 94
-    },
-    {
-      name: "Marcus Williams",
-      company: "HealthConnect",
-      location: "Sydney, NSW",
-      industry: "HealthTech",
-      potentialScore: 88,
-      description: "Democratizing healthcare access in rural Australia through telemedicine platform. Indigenous founder with medical background.",
-      tags: ["Healthcare", "Rural", "Telemedicine", "Social Impact"],
-      fundingStage: "Seed",
-      diversityMetrics: ["Indigenous Founded", "First Generation"],
-      avatar: "/placeholder.svg",
-      confidence: 91
-    },
-    {
-      name: "Priya Patel",
-      company: "EduAI",
-      location: "Brisbane, QLD",
-      industry: "EdTech",
-      potentialScore: 85,
-      description: "Personalized learning platform using AI to adapt to individual student needs. Former teacher turned tech entrepreneur.",
-      tags: ["AI", "Education", "Personalization", "B2C"],
-      fundingStage: "Pre-Seed",
-      diversityMetrics: ["Female Founded", "Career Changer"],
-      avatar: "/placeholder.svg",
-      confidence: 87
-    }
-  ];
+  const [searchResults, setSearchResults] = useState<Founder[]>([]);
+  const [selectedFounder, setSelectedFounder] = useState<Founder | null>(null);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -119,22 +80,31 @@ const Index = () => {
                 </div>
               </div>
               
-              <SearchFilters />
+              <FounderSearch onSearchResults={setSearchResults} />
             </div>
 
-            {/* Founders Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              {sampleFounders.map((founder, index) => (
-                <FounderCard key={index} {...founder} />
+            {/* Search Results */}
+            <div className="space-y-6">
+              {searchResults.map((founder) => (
+                <FounderProfile
+                  key={founder.id}
+                  founder={founder}
+                  onUpdate={async (updates) => {
+                    // Handle founder profile updates
+                    console.log('Updating founder:', founder.id, updates);
+                  }}
+                />
               ))}
             </div>
 
             {/* Load More */}
-            <div className="text-center">
-              <Button variant="outline" className="w-full md:w-auto">
-                Load More Founders
-              </Button>
-            </div>
+            {searchResults.length > 0 && (
+              <div className="text-center mt-8">
+                <Button variant="outline" className="w-full md:w-auto">
+                  Load More Founders
+                </Button>
+              </div>
+            )}
           </div>
 
           {/* Sidebar */}
